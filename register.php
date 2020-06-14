@@ -1,6 +1,7 @@
 <?php
 
     include("includes/classes/Account.php");
+    include("includes/classes/Constants.php");
 
     $account = new Account();
 
@@ -34,23 +35,23 @@
         <form id="registerForm" action="register.php" method="POST">
             <h2>Create Account</h2>
             <p>
-                <?php echo $account->getError("Username must be between 2 and 15 characters"); ?>
+                <?php echo $account->getError(Constants::$usernameCharacters); ?>
                 <label for="username">Username</label>
                 <input id="username" name="username" type="text" placeholder="Enter Your Username" required>
             </p>
             <p>
-                <?php echo $account->getError("First Name must be between 2 and 20 characters"); ?>
+                <?php echo $account->getError(Constants::$firtnameCharacters); ?>
                 <label for="firstName">First Name</label>
                 <input id="firstName" name="firstName" type="text" placeholder="Enter Your First Name" required>
             </p>
             <p>
-                <?php echo $account->getError("Last Name must be between 2 and 20 characters"); ?>
+                <?php echo $account->getError(Constants::$lastnameCharacters); ?>
                 <label for="lastName">Last Name</label>
                 <input id="lastName" name="lastName" type="text" placeholder="Enter Your Last Name" required>
             </p>
             <p>
-                <?php echo $account->getError("Provided Emails don't match"); ?>
-                <?php echo $account->getError("Email format is invalid"); ?>
+                <?php echo $account->getError(Constants::$emailsDoNotMatch); ?>
+                <?php echo $account->getError(Constants::$emailInvalid); ?>
                 <label for="email">Email</label>
                 <input id="email" name="email" type="text" placeholder="Enter Your Email" required>
             </p>
@@ -59,8 +60,8 @@
                 <input id="email2" name="email2" type="email" placeholder="Confirm Your Email" required>
             </p>
             <p>
-                <?php echo $account->getError("Provided Passwords don't match"); ?>
-                <?php echo $account->getError("Your Password must be at least 8 characters long"); ?>
+                <?php echo $account->getError(Constants::$passwordsDoNotMatch); ?>
+                <?php echo $account->getError(Constants::$passwordCharacters); ?>
                 <label for="password">Password</label>
                 <input id="password" name="password" type="password" placeholder="Enter Your Password" required>
             </p>

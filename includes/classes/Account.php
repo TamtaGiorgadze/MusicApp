@@ -32,7 +32,7 @@
 
         private function validateUsername($un) {
             if(strlen($un) > 15 || strlen($un) < 2) {
-                array_push($this->errorArray, "Username must be between 2 and 15 characters");
+                array_push($this->errorArray, Constants::$usernameCharacters);
                 return;
             }
 
@@ -41,26 +41,26 @@
     
         private function validateFirstname($fn) {
             if(strlen($fn) > 20 || strlen($fn) < 2) {
-                array_push($this->errorArray, "First Name must be between 2 and 20 characters");
+                array_push($this->errorArray, Constants::$firtnameCharacters);
                 return;
             }
         }
     
         private function validateLastname($ln) {
             if(strlen($ln) > 20 || strlen($ln) < 2) {
-                array_push($this->errorArray, "Last Name must be between 2 and 20 characters");
+                array_push($this->errorArray, Constants::$lastnameCharacters);
                 return;
             }
         }
     
         private function validateEmails($em, $em2) {
             if($em != $em2) {
-                array_push($this->errorArray, "Provided Emails don't match");
+                array_push($this->errorArray, Constants::$emailsDoNotMatch);
                 return;
             }
 
             if(!filter_var($em, FILTER_VALIDATE_EMAIL)) {
-                array_push($this->errorArray, "Email format is invalid");
+                array_push($this->errorArray, Constants::$emailInvalid);
                 return;
             }
 
@@ -69,12 +69,12 @@
     
         private function validatePasswords($pw, $pw2) {
             if($pw != $pw2) {
-                array_push($this->errorArray, "Provided Passwords don't match");
+                array_push($this->errorArray, Constants::$passwordsDoNotMatch);
                 return;
             }
 
             if(strlen($pw) < 8) {
-                array_push($this->errorArray, "Your Password must be at least 8 characters long");
+                array_push($this->errorArray, Constants::$passwordCharacters);
                 return;
             }
         }
