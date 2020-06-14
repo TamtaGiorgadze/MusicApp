@@ -23,6 +23,13 @@
             }
         }
 
+        public function getError($error) {
+            if(!in_array($error, $this->errorArray)) {
+                $error = "";
+            }
+            return "<span class='errorMessage'>$error</span>";
+        }
+
         private function validateUsername($un) {
             if(strlen($un) > 15 || strlen($un) < 2) {
                 array_push($this->errorArray, "Username must be between 2 and 15 characters");
