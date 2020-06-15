@@ -4,7 +4,7 @@
     include("includes/classes/Account.php");
     include("includes/classes/Constants.php");
 
-    $account = new Account();
+    $account = new Account($con);
 
     include("includes/handlers/register-handler.php");
     include("includes/handlers/login-handler.php");
@@ -65,7 +65,7 @@
             <p>
                 <label for="email2">Confirm Email</label>
                 <input id="email2" name="email2" type="email" placeholder="Confirm Your Email" value="<?php getInputValue("email2"); ?>" required>
-            </p>
+            </p>validateLastname
             <p>
                 <?php echo $account->getError(Constants::$passwordsDoNotMatch); ?>
                 <?php echo $account->getError(Constants::$passwordCharacters); ?>
