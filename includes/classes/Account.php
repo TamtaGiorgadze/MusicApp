@@ -64,7 +64,7 @@
                 return;
             }
 
-            //TODO: check if email exists in db
+            //TODO: check if email exists in DB
         }
     
         private function validatePasswords($pw, $pw2) {
